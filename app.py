@@ -1,6 +1,6 @@
 import os
 
-restaurantes = []
+restaurantes = ['Pizza Torres', 'Churrascaria do Zé', 'Sushi House', 'Hamburgueria do João']
 
 def exibir_nome_do_programa():
     print("""
@@ -22,7 +22,6 @@ def exibir_opcoes():
 def finalizar_app():
     os.system('cls')
     print('Finalizando o app...\n')
-    exit()
 
 def opcao_invalida():
     print('Opção inválida!\n')
@@ -45,7 +44,11 @@ def listarRestaurantes():
     os.system('cls')
     print('Listagem de Restaurantes\n')
 
-    print()
+    for restaurante in restaurantes:
+        print(f'- {restaurante}')
+    
+    input('\nPressione Enter para voltar ao menu principal...')
+    main()
 
 def escolher_opcao():
     try:
