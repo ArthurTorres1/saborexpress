@@ -1,5 +1,7 @@
 import os
 
+restaurantes = []
+
 def exibir_nome_do_programa():
     print("""
 ░██████╗░█████╗░██████╗░░█████╗░██████╗░  ███████╗██╗░░██╗██████╗░██████╗░███████╗░██████╗░██████╗
@@ -22,21 +24,50 @@ def finalizar_app():
     print('Finalizando o app...\n')
     exit()
 
-def escolher_opcao():
-    opcao_escolha = int(input('Escolha uma opção: ' ))
-    print(f'Você escolheu a opçao {opcao_escolha}\n')
+def opcao_invalida():
+    print('Opção inválida!\n')
+    input('Digite uma tecla para voltar ao menu principal...')
+    main()
 
-    if opcao_escolha == 1:
-        print('Cadastrar Restaurante')
-    elif opcao_escolha == 2:
-        print('Listar Restaurantes')
-    elif opcao_escolha == 3:
-        print('Ativar Restaurante')
-    else:
-        finalizar_app()
+def cadastrarNovoRestaurante():
+    os.system('cls')
+    print('Cadastro de novo Restaurante\n')
+
+    nome_restaurante = input('Digite o nome do restaurante: ')
+    restaurantes.append(nome_restaurante)
+
+    print(f'O restaurante {nome_restaurante} foi cadastrado com sucesso!\n')
+
+    input('Pressione Enter para voltar ao menu principal...')
+    main()
+
+def listarRestaurantes():
+    os.system('cls')
+    print('Listagem de Restaurantes\n')
+
+    print()
+
+def escolher_opcao():
+    try:
+        opcao_escolha = int(input('Escolha uma opção: ' ))
+        print(f'Você escolheu a opçao {opcao_escolha}\n')
+
+        if opcao_escolha == 1:
+            cadastrarNovoRestaurante()
+        elif opcao_escolha == 2:
+            listarRestaurantes()
+        elif opcao_escolha == 3:
+            print('Ativar Restaurante')
+        elif opcao_escolha == 4:
+            finalizar_app()
+        else:
+            opcao_invalida()
+    except:
+        opcao_invalida()
 
 
 def main():
+    os.system('cls')
     exibir_nome_do_programa()
     exibir_opcoes()
     escolher_opcao()
