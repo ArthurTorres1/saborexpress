@@ -19,6 +19,7 @@ def exibir_nome_do_programa():
 """)
 
 def exibir_opcoes():
+    '''Função responsável por exibir as opções do menu'''
     print('1-Cadastrar Restaurante')
     print('2-Listar Restaurantes')
     print('3-Alternar Estado de Restaurante (Ativar/Desativar)')
@@ -32,6 +33,7 @@ def voltar_ao_menu_principal():
     main()
 
 def exibir_subtitulo(subtitulo):
+    '''Essa função é responsável por padronizar os subtitulos das funções'''
     os.system('cls')
     linha = '*' * (len(subtitulo) + 4)
     print(linha)
@@ -39,10 +41,22 @@ def exibir_subtitulo(subtitulo):
     print(linha)
 
 def opcao_invalida():
+    '''Essa função é responsável por padronizar a mensagem de opção inválida do menu'''
     print('Opção inválida!\n')
     voltar_ao_menu_principal()
 
 def cadastrarNovoRestaurante():
+    '''
+    Essa função é responsável por cadastrar um novo restaurante
+    
+    Inputs:
+    - Nome do restaurante
+    - Categoria
+    
+    Outputs:
+    - Adiciona um novo restaurante na lista de restaurantes
+    '''
+    
     exibir_subtitulo('Cadastro de Restaurante')
 
     nome_restaurante = input('Digite o nome do restaurante: ')
@@ -60,6 +74,7 @@ def cadastrarNovoRestaurante():
     voltar_ao_menu_principal()
 
 def listarRestaurantes():
+    '''Essa função é responsável por listar os restaurantes'''
     exibir_subtitulo('Listagem de Restaurantes')
 
     print(f'{"Nome do Restaurante".ljust(22)} | {"Categoria".ljust(20)} | {"Status"}')
@@ -73,6 +88,7 @@ def listarRestaurantes():
     voltar_ao_menu_principal()
 
 def alternarEstadoRestaurante():
+    '''Função responsável por Ativar ou Desativar o restaurante'''
     exibir_subtitulo('Ativar/Desativar Restaurante')
     nome_restaurante = input('Digite o nome do restaurante que deseja ativar/desativar: ')
 
@@ -98,6 +114,7 @@ def alternarEstadoRestaurante():
 
 
 def escolher_opcao():
+    '''Função responsável por chamar a função correspondente ao número que o usuário digitou'''
     try:
         opcao_escolha = int(input('Escolha uma opção: ' ))
         print(f'Você escolheu a opçao {opcao_escolha}\n')
